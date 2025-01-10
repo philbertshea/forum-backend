@@ -35,6 +35,10 @@ func main() {
 	// POST routes
 	router.POST("/registerUser", createUser)
 	router.POST("/getUsers", getUsers)
+	router.POST("/getThreads", getThreads)
+	router.POST("/loginUser", loginUser)
+	router.POST("/createThread", createThread)
+	router.POST("/getIdFromUsername", getIdFromUsername)
 
 	// Run
 	router.Run()
