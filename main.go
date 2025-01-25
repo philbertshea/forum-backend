@@ -39,6 +39,7 @@ func main() {
 	router.POST("/loginUser", loginUser)
 	router.POST("/createThread", createThread)
 	router.POST("/getIdFromUsername", getIdFromUsername)
+	router.GET("/threads/:id", getThreadFromId)
 
 	// Run
 	router.Run()

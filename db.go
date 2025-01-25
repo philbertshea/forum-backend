@@ -154,3 +154,16 @@ func getIdFromUsername(c *gin.Context) {
 	c.JSON(http.StatusOK, user.ID)
 
 }
+
+func getThreadFromId(c *gin.Context) {
+	// Get id from user parameter
+	id := c.Param("id")
+	var thread models.Thread
+
+	err := DB.Preload("Comments").First(&thread, id)
+	if err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": err.Error})
+		return
+	}
+	c.JSON(http.StatusOK, thread)
+}
